@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-slate-900">
+    <div class="container pb-10">
+      <header class="flex items-center justify-between px-3 py-3">
+        <div class="flex items-center">
+          <nav>
+            <ul class="flex text-white font-light">
+              <li class="mr-5 px-1 py-1">
+                <a href="/">
+                  <Icon name="mdi:home-outline" class="inline text-xl text-blue-500 relative bottom-0.5" />
+                  <div class="inline-block transition duration-200 ease-in-out hover:text-blue-300">Home</div>
+                </a>
+              </li>
+              <li class="mr-5 px-1 py-1">
+                <a href="/about">
+                  <Icon name="mdi:person-outline" class="inline text-xl text-purple-500 relative bottom-0.5" />
+                  <div class="inline-block transition duration-200 ease-in-out hover:text-purple-300">About</div>
+                </a>
+              </li>
+              <li class="mr-5 px-1 py-1">
+                <a href="/music">
+                  <Icon name="mdi:person-outline" class="inline text-xl text-pink-500 relative bottom-0.5" />
+                  <div class="inline-block transition duration-200 ease-in-out hover:text-pink-300">Music</div>
+                </a>
+              </li>
+              <li class="mr-5 px-1 py-1">
+                <a href="/terminal">
+                  <Icon name="mdi:terminal" class="inline text-xl text-gray-500 relative bottom-0.5" />
+                  <div class="inline-block transition duration-200 ease-in-out hover:text-gray-300">Terminal</div>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <slot />
+    </div>
+  </body>
+</html>

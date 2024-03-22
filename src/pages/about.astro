@@ -1,15 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const code = `const bio = {
+  husband: true,
+  dad: true,
+  career: 'Software Engineer',
+  dev: 'html|css|scss|js|ts',
+  quotes: 'Single',
+  spaces: 2,
+  food: 'Tacos',
+  drink: 'Beer|Whiskey',
+};`;
 ---
 
 <Layout title="Informational : Fun and silly information about myself.">
-  <div class="relative isolate px-6 pt-14 lg:px-8">
-    <div class="mx-auto max-w-2xl">
-      <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Informational</h1>
+  <div class="relative px-6 pt-14 lg:px-8">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-left">
+        <h1 class="text-4xl text-purple-500 font-bold sm:text-6xl">Informational</h1>
       </div>
       <p class="mt-6 text-lg leading-8 text-white">
         Just a guy residing right at the bottom of Southern New Jersey in a small beach town neighboring <a
+          class="text-purple-500"
           href="https://www.google.com/maps?q=cape+may+new+jersey&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiaw-O6pu73AhVMhYkEHTWLBgUQ_AUoAXoECAIQAw"
           target="_blank"
           rel="noreferrer">Cape May</a
@@ -40,6 +52,9 @@ import Layout from "../layouts/Layout.astro";
       <p class="mt-6 text-lg leading-8 text-white">
         <strong>Music.</strong> Whether I'm listening or playing it, music will always have that special place in my
         heart.
+      </p>
+      <p class="mt-5">
+        <pre class="text-sky-400"><code>{code}</code></pre>
       </p>
     </div>
   </div>

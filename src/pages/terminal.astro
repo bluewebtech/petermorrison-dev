@@ -1,14 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import TerminalComponent from "../components/Terminal.tsx";
+
+function handleClick() {
+  console.log("button clicked!");
+}
 ---
 
 <Layout title="Terminal : Command it to do something.">
-  <div class="relative isolate px-6 pt-14 lg:px-8">
-    <div class="mx-auto max-w-2xl">
-      <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Terminal</h1>
-        <p class="mt-6 text-lg leading-8 text-white">Things</p>
-      </div>
-    </div>
+  <div class="relative isolate">
+    <TerminalComponent client:only />
   </div>
 </Layout>

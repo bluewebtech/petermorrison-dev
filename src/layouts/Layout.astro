@@ -20,7 +20,9 @@ const { title } = Astro.props;
   </head>
   <body class="bg-slate-900">
     <div class="container pb-10">
-      <header class="flex items-center justify-between px-3 py-3">
+      <header
+        class="sticky top-0 z-10 bg-slate-900 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-sky-950 flex items-center justify-between px-3 py-3"
+      >
         <div class="flex items-center">
           <nav>
             <ul class="flex text-white font-light">
@@ -38,8 +40,14 @@ const { title } = Astro.props;
               </li>
               <li class="mr-5 px-1 py-1">
                 <a href="/music">
-                  <Icon name="mdi:person-outline" class="inline text-xl text-pink-500 relative bottom-0.5" />
+                  <Icon name="mdi:music" class="inline text-xl text-pink-500 relative bottom-0.5" />
                   <div class="inline-block transition duration-200 ease-in-out hover:text-pink-300">Music</div>
+                </a>
+              </li>
+              <li class="mr-5 px-1 py-1">
+                <a href="/settings">
+                  <Icon name="mdi:settings-outline" class="inline text-xl text-orange-500 relative bottom-0.5" />
+                  <div class="inline-block transition duration-200 ease-in-out hover:text-orange-300">Settings</div>
                 </a>
               </li>
               <li class="mr-5 px-1 py-1">

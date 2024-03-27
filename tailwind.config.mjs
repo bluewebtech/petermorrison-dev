@@ -6,6 +6,19 @@ export default {
       fontFamily: {
         sans: ['"PT Sans"', 'sans-serif'],
       },
+
+      // that is animation class
+      animation: {
+        'fade-in': 'fadeIn 10s ease-in-out',
+      },
+
+      // that is actual animation
+      keyframes: () => ({
+        'fadeIn': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      }),
     },
   },
   plugins: [],

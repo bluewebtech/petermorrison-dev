@@ -1,5 +1,11 @@
 ---
-import { Icon } from "astro-icon/components";
+import {
+  MdOutlineHome,
+  MdOutlinePerson,
+  MdOutlineMusicNote,
+  MdOutlineSettings,
+  MdOutlineTerminal,
+} from "react-icons/md";
 
 interface Props {
   title: string;
@@ -28,31 +34,31 @@ const { title } = Astro.props;
             <ul class="flex text-white font-light">
               <li class="mr-5 px-1 py-1">
                 <a href="/">
-                  <Icon name="mdi:home-outline" class="inline text-xl text-blue-500 relative bottom-0.5" />
+                  <MdOutlineHome className="hidden sm:inline text-xl text-blue-500 relative bottom-0.5" />
                   <div class="inline-block transition duration-200 ease-in-out hover:text-blue-300">Home</div>
                 </a>
               </li>
               <li class="mr-5 px-1 py-1">
                 <a href="/about">
-                  <Icon name="mdi:person-outline" class="inline text-xl text-purple-500 relative bottom-0.5" />
+                  <MdOutlinePerson className="hidden sm:inline text-xl text-purple-500 relative bottom-0.5" />
                   <div class="inline-block transition duration-200 ease-in-out hover:text-purple-300">About</div>
                 </a>
               </li>
               <li class="mr-5 px-1 py-1">
                 <a href="/music">
-                  <Icon name="mdi:music" class="inline text-xl text-pink-500 relative bottom-0.5" />
+                  <MdOutlineMusicNote className="hidden sm:inline text-xl text-pink-500 relative bottom-0.5" />
                   <div class="inline-block transition duration-200 ease-in-out hover:text-pink-300">Music</div>
                 </a>
               </li>
               <li class="mr-5 px-1 py-1">
                 <a href="/settings">
-                  <Icon name="mdi:settings-outline" class="inline text-xl text-orange-500 relative bottom-0.5" />
+                  <MdOutlineSettings className="hidden sm:inline text-xl text-orange-500 relative bottom-0.5" />
                   <div class="inline-block transition duration-200 ease-in-out hover:text-orange-300">Settings</div>
                 </a>
               </li>
               <li class="mr-5 px-1 py-1">
                 <a href="/terminal">
-                  <Icon name="mdi:terminal" class="inline text-xl text-gray-500 relative bottom-0.5" />
+                  <MdOutlineTerminal className="hidden sm:inline text-xl text-gray-500 relative bottom-0.5" />
                   <div class="inline-block transition duration-200 ease-in-out hover:text-gray-300">Terminal</div>
                 </a>
               </li>

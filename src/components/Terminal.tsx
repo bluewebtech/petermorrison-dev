@@ -1,4 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useState } from 'react'
+import { MdArrowForwardIos } from 'react-icons/md';
+import * as emoji from 'node-emoji';
 
 interface Commands {
   command: string;
@@ -16,11 +18,16 @@ export default function Terminal() {
     event.preventDefault();
 
     if (commandRef.current !== null) {
-      await setCommand((command) => [...command, {
-        // @ts-ignore
-        command: commandRef.current.value,
-        output: 'this is a sample output'
-      }]);
+      if (commandRef.current.value === 'clear') {
+        await setCommand([]);
+      } else {
+        await setCommand((command) => [...command, {
+          // @ts-ignore
+          command: commandRef.current.value,
+          // @ts-ignore
+          output: emoji.emojify(`:${commandRef.current.value}:`),
+        }]);
+      }
 
       scrollToBottom();
       commandRef.current.value = '';
@@ -35,16 +42,19 @@ export default function Terminal() {
         {commands.map((item, key) => {
           return <div className="mb-1 text-white" key={key}>
             <div>{item.command}</div>
-            <div className="text-blue-400">{item.output}</div>
+            <div className="text-blue-400 text-8xl">{item.output}</div>
           </div>;
         })}
         <div ref={lastCommandRef} />
       </div>
-      <form onSubmit={onCommand} method="post">
+      <form className="flex items-center justify-between fixed bottom-0 w-full" onSubmit={onCommand} method="post">
+        <div className="flex inline p-2 bg-slate-800 text-white">
+          <MdArrowForwardIos className="text-base text-green-500" />
+        </div>
         <input
           type="text" ref={commandRef}
           placeholder="Enter something fancy...Ex: help, cat, dog, fire, funny"
-          className="fixed bottom-0 w-full p-2 bg-slate-950 text-sm placeholder-gray-500 text-gray-200 outline-none"
+          className="flex w-screen p-2 bg-slate-950 text-sm placeholder-gray-500 text-gray-200 outline-none"
         />
       </form>
     </div>

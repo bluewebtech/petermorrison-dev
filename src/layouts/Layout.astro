@@ -6,12 +6,15 @@ import {
   MdOutlineSettings,
   MdOutlineTerminal,
 } from "react-icons/md";
+import HomeBody from "../components/HomeBody.tsx";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+console.log(Astro.url.href);
 ---
 
 <!doctype html>
@@ -25,7 +28,8 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-slate-900">
-    <div class="container pb-10">
+    <HomeBody client:only />
+    <div class="pb-10">
       <header
         class="sticky top-0 z-10 bg-slate-900 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-sky-950 flex items-center justify-between px-3 py-3"
       >

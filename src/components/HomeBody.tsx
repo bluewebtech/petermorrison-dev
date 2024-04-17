@@ -1,14 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import LocalStorage from '../utilities/LocalStorage.ts';
 import DisneyMovies from '../data/disney-movies.json';
 
+interface Color {
+  color: string;
+  text: string;
+}
+
 export default function HomeBody() {
-  const width = '2500';
-
-  const height = '1200';
-
-  const canvasRef = useRef(null);
-
   // I stole this code from the stackoverflow.
   // Thanks Internet developer person!
   const randomColor = () => {
@@ -19,69 +18,48 @@ export default function HomeBody() {
     return `rgb(${r}, ${g}, ${b}, 0.3)`;
   };
 
+  const [backgroundItems, setBackgroundItems] = useState<Color[]>([]);
+
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const canvasElement = document.getElementById('fancyBackground');
+    if (LocalStorage.has('fancy-background')) {
+      const fancyBackground = JSON.parse(LocalStorage.get('fancy-background'));
+      setBackgroundItems((backgroundItems) => fancyBackground);
+    } else {
+      const fillText = DisneyMovies.join(', ').replace(/[^a-zA-Z ]/g, '');
+      const fillStyles: Color[] = [];
+      const fillTextArray: string[] = [];
 
-    if (canvas && canvasElement) {
-      const context = (canvas as HTMLCanvasElement).getContext('2d');
+      for (let i = 0; i < 1; i++) fillTextArray[i] = btoa(fillText);
 
-      canvasElement.setAttribute('width', width);
-      canvasElement.setAttribute('height', height);
+      const fillTextString = fillTextArray.join();
 
-      if (context) {
-        if (LocalStorage.has('body_background')) {
-          const toDrawUrl = LocalStorage.get('fancy-background');
-          const img = new window.Image();
-
-          img.addEventListener('fancyBackground', () => {
-              context.drawImage(img, 0, 0);
+      if (fillTextString) {
+        for (let i = 0; i < fillTextString.length; i++) {
+          fillStyles.push({
+            color: randomColor(),
+            text: fillTextString[i],
           });
-
-          img.setAttribute('src', toDrawUrl);
         }
 
-        if (!LocalStorage.has('body_background')) {
-          context.font = '12px Arial';
+        setBackgroundItems((backgroundItems) => fillStyles);
 
-          // @ts-ignore
-          context.letterSpacing = '8px';
-
-          const fillText = DisneyMovies.join(', ').replace(/[^a-zA-Z ]/g, '');
-
-          const fillTextArray: string[] = [];
-
-          for (let i = 0; i < 50; i++) fillTextArray[i] = btoa(fillText);
-
-          const fillTextString = fillTextArray.join().match(new RegExp('.{1,1000}', 'g'));
-
-          if (fillTextString) {
-            for (let i = 0; i < fillTextString.length; i++) {
-              let x = 0;
-
-              for(let j = 0; j <= fillTextString[i].length; ++j) {
-                const ch = fillTextString[i].charAt(j);
-
-                context.fillStyle = randomColor();
-
-                context.fillText(fillTextString[i].charAt(j), x, 50 + i * 20);
-                x += context.measureText(ch).width;
-              }
-            }
-          }
-
-          // @ts-ignore
-          const url = canvasElement.toDataURL();
-
-          LocalStorage.set('fancy-background', url);
-        }
+        const fancyBackground = JSON.stringify(fillStyles)
+        LocalStorage.set('fancy-background', fancyBackground);
       }
     }
   }, []);
 
+  const backgroundChars = backgroundItems.map((item, key) => {
+    return (
+    <span className="mr-1 inline-flex"
+          style={{color: item.color}}
+          key={key}>{item.text}
+    </span>
+  )});
+
   return (
-    <div className="fixed inset-0 m-0 p-0">
-      <canvas id="fancyBackground" ref={canvasRef} />
+    <div className="fixed m-0 p-0 select-none">
+      {backgroundChars}
     </div>
-  )
+  );
 };

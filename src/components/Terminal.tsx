@@ -12,6 +12,8 @@ export default function Terminal() {
 
   const lastCommandRef = useRef<HTMLInputElement>(null);
 
+  const [lastCommandRefLength, setlastCommandRefLength] = useState(0);
+
   const [commands, setCommand] = useState<Commands[]>([]);
 
   const onCommand = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -20,6 +22,7 @@ export default function Terminal() {
     if (commandRef.current !== null) {
       if (commandRef.current.value === 'clear') {
         await setCommand([]);
+        await setlastCommandRefLength((lastCommandRefLength) => 0);
       } else {
         await setCommand((command) => [...command, {
           // @ts-ignore
@@ -27,6 +30,8 @@ export default function Terminal() {
           // @ts-ignore
           output: emoji.emojify(`:${commandRef.current.value}:`),
         }]);
+
+        await setlastCommandRefLength((lastCommandRefLength) => lastCommandRefLength + 1);
       }
 
       scrollToBottom();
@@ -45,7 +50,7 @@ export default function Terminal() {
             <div className="text-blue-400 text-8xl">{item.output}</div>
           </div>;
         })}
-        <div className="mx-auto max-w-2xl mt-0 py-40 text-center text-gray-500 font-poppins text-1xl lg:mt-20">
+        <div className={`${lastCommandRefLength ? 'hidden' : 'display'} mx-auto max-w-2xl mt-0 py-40 text-center text-gray-500 font-poppins text-1xl lg:mt-20`}>
           <p>Please take note that the terminal functionality is super limited at the moment.</p>
           <p className="mt-2">New, fun and quirky features are currently being thought out and developed.</p>
           <p className="mt-6">To be completely honest, I am winging this feature, for fun...</p>

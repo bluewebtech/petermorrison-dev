@@ -15,8 +15,8 @@ export default function Navigation() {
   doFadeIn();
 
   return (
-    <nav className={`${ firstFade ? "transition-all duration-500 opacity-100" : "opacity-0"}`}>
-      <ul className="flex text-white font-light">
+    <nav className={`font-poppins  ${ firstFade ? "transition-all duration-500 opacity-100" : "opacity-0"}`}>
+      <ul className="flex text-sm text-white font-light">
         <li className="mr-5 px-1 py-1">
           <a href="/">
             <MdOutlineHome className="mr-2 hidden sm:inline text-xl text-blue-500 relative bottom-0.5" />

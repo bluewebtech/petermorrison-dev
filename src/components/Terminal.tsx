@@ -45,6 +45,12 @@ export default function Terminal() {
             <div className="text-blue-400 text-8xl">{item.output}</div>
           </div>;
         })}
+        <div className="mx-auto max-w-2xl mt-0 py-40 text-center text-gray-500 font-poppins text-1xl lg:mt-20">
+          <p>Please take note that the terminal functionality is super limited at the moment.</p>
+          <p className="mt-2">New, fun and quirky features are currently being thought out and developed.</p>
+          <p className="mt-6">To be completely honest, I am winging this feature, for fun...</p>
+          <p className="mt-2">Everything within this site is an experiment.</p>
+        </div>
         <div ref={lastCommandRef} />
       </div>
       <form className="flex items-center justify-between fixed bottom-0 w-full" onSubmit={onCommand} method="post">

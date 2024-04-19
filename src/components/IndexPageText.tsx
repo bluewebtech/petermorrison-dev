@@ -8,8 +8,8 @@ export default function Terminal() {
   const [secondFade, setSecondFade] = useState<boolean>(false);
 
   const doFadeIn = () => {
-    setTimeout(() => setFirstFade(true), 1);
-    setTimeout(() => setSecondFade(true), 2000);
+    setTimeout(() => setFirstFade(true), 100);
+    setTimeout(() => setSecondFade(true), 1500);
   };
 
   doFadeIn();
@@ -42,16 +42,16 @@ export default function Terminal() {
         </p>
         <p className="mt-4 text-3xl leading-8 text-3xl text-white">
           <a href="https://github.com/bluewebtech" target="_blank">
-            <FaGithub className="inline mr-5 transition duration-200 ease-in-out text-gray-400 hover:text-gray-500" />
+            <FaGithub className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-gray-500" />
           </a>
           <a href="https://www.linkedin.com/in/peter-morrison-info/" target="_blank">
-            <FaLinkedin className="inline mr-5 transition duration-200 ease-in-out text-blue-400 hover:text-blue-500" />
+            <FaLinkedin className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-blue-500" />
           </a>
           <a href="https://twitter.com/bluewebtech" target="_blank">
             <FaXTwitter className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-gray-600" />
           </a>
           <a href="https://leetcode.com/bluewebtech/" target="_blank">
-            <SiLeetcode className="inline mr-5 transition duration-200 ease-in-out text-orange-400 hover:text-orange-500" />
+            <SiLeetcode className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-orange-500" />
           </a>
         </p>
     </div>

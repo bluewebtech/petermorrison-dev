@@ -8,6 +8,7 @@ import {
 } from "react-icons/md";
 import FancyBackground from "../components/FancyBackground.tsx";
 import Navigation from "../components/Navigation.tsx";
+import XYPosition from "../components/XYPosition.tsx";
 
 interface Props {
   title: string;
@@ -44,5 +45,6 @@ const { title } = Astro.props;
       </header>
       <slot />
     </div>
+    <XYPosition client:only />
   </body>
 </html>

@@ -5,6 +5,7 @@ import { SiLeetcode } from "react-icons/si";
 
 export default function Terminal() {
   const [firstFade, setFirstFade] = useState<boolean>(false);
+
   const [secondFade, setSecondFade] = useState<boolean>(false);
 
   const doFadeIn = () => {
@@ -41,16 +42,16 @@ export default function Terminal() {
             : "opacity-0"}`}>Homebrewer</span>
         </p>
         <p className="mt-4 text-3xl leading-8 text-3xl text-white">
-          <a href="https://github.com/bluewebtech" target="_blank">
+          <a href="https://github.com/bluewebtech" target="_blank" rel="noreferrer">
             <FaGithub className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-gray-500" />
           </a>
-          <a href="https://www.linkedin.com/in/peter-morrison-info/" target="_blank">
+          <a href="https://www.linkedin.com/in/peter-morrison-info/" target="_blank" rel="noreferrer">
             <FaLinkedin className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-blue-500" />
           </a>
-          <a href="https://twitter.com/bluewebtech" target="_blank">
+          <a href="https://twitter.com/bluewebtech" target="_blank" rel="noreferrer">
             <FaXTwitter className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-gray-600" />
           </a>
-          <a href="https://leetcode.com/bluewebtech/" target="_blank">
+          <a href="https://leetcode.com/bluewebtech/" target="_blank" rel="noreferrer">
             <SiLeetcode className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-orange-500" />
           </a>
         </p>

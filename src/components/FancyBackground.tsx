@@ -8,9 +8,9 @@ interface FancyBackgroundItem {
 }
 
 export default function FancyBackground() {
-  const [fancyBackgroundItems, setFancyBackgroundItems] = useState<FancyBackgroundItem[]>([]);
-
   const isRoot = window.location.pathname === '/';
+
+  const [fancyBackgroundItems, setFancyBackgroundItems] = useState<FancyBackgroundItem[]>([]);
 
   // I stole this code from the stackoverflow.
   // Thanks Internet developer person!

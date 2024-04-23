@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   MdOutlineHome,
   MdOutlinePerson,
-  // MdOutlineMusicNote,
+  MdOutlineMusicNote,
   // MdOutlineSettings,
   MdOutlineTerminal,
 } from "react-icons/md";
@@ -29,13 +29,13 @@ export default function Navigation() {
             <div className="inline-block transition duration-200 ease-in-out hover:text-purple-300">About</div>
           </a>
         </li>
-        {/* <li className="mr-5 px-1 py-1">
+        <li className="mr-5 px-1 py-1">
           <a href="/music">
             <MdOutlineMusicNote className="mr-2 hidden sm:inline text-xl text-pink-500 relative bottom-0.5" />
             <div className="inline-block transition duration-200 ease-in-out hover:text-pink-300">Music</div>
           </a>
         </li>
-        <li className="mr-5 px-1 py-1">
+        {/* <li className="mr-5 px-1 py-1">
           <a href="/settings">
             <MdOutlineSettings className="mr-2 hidden sm:inline text-xl text-orange-500 relative bottom-0.5" />
             <div className="inline-block transition duration-200 ease-in-out hover:text-orange-300">Settings</div>

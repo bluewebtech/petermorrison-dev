@@ -35,9 +35,10 @@ const { title } = Astro.props;
   </head>
   <body class="bg-slate-900">
     <FancyBackground client:only />
+    <XYPosition client:only />
     <div class="pb-10">
       <header
-        class="sticky top-0 z-10 bg-slate-900 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-sky-950 flex items-center justify-between px-3 py-3"
+        class="sticky top-0 z-50 bg-slate-900 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-sky-950 flex items-center justify-between px-3 py-3"
       >
         <div class="flex items-center h-8">
           <Navigation client:only />
@@ -45,6 +46,5 @@ const { title } = Astro.props;
       </header>
       <slot />
     </div>
-    <XYPosition client:only />
   </body>
 </html>

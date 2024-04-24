@@ -23,22 +23,24 @@ const youtubeLinks: string[] = [
       <div class="text-left">
         <h1 class="text-4xl text-pink-500 font-bold sm:text-6xl">Music</h1>
       </div>
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {
-          youtubeLinks.map((link: string) => {
-            return (
-              <div class="p-0 mr-10">
+      {
+        youtubeLinks.map((link: string) => {
+          return (
+            <div class="flex mt-6">
+              <div class="p-2 aspect-w-14 aspect-h-9">
                 <iframe
+                  width="560"
+                  height="315"
                   src={link}
                   title="YouTube video player"
                   referrerpolicy="strict-origin-when-cross-origin"
                   allowfullscreen
                 />
               </div>
-            );
-          })
-        }
-      </div>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </Layout>

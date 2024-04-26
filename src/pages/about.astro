@@ -1,16 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const code = `const bio = {
-  husband: true,
-  dad: true,
-  career: 'Software Engineer',
-  dev: 'html|css|scss|js|ts',
-  quotes: 'Single',
-  spaces: 2,
-  food: 'Tacos',
-  drink: 'Beer|Whiskey',
-};`;
+const code = `<span class="text-blue-600">const</span> <span class="text-pink-600">bio</span> <span class="text-white">=</span> <span class="text-purple-600">{</span>
+  <span class="text-sky-600">husband:</span> <span class="text-orange-600">true</span><span class="text-white">,</span>
+  <span class="text-sky-600">dad:</span> <span class="text-orange-600">true</span><span class="text-white">,</span>
+  <span class="text-sky-600">career:</span> <span class="text-yellow-600">'Software Engineer'</span>'</span><span class="text-white">,</span>
+  <span class="text-sky-600">dev:</span> <span class="text-yellow-600">'html|css|scss|js|ts'</span><span class="text-white">,</span>
+  <span class="text-sky-600">quotes:</span> <span class="text-yellow-600">'Single'</span></span><span class="text-white">,</span>
+  <span class="text-sky-600">spaces:</span> <span class="text-green-600">2</span><span class="text-white">,</span>
+  <span class="text-sky-600">food:</span> <span class="text-yellow-600">'Tacos'</span></span><span class="text-white">,</span>
+  <span class="text-sky-600">drink:</span> <span class="text-yellow-600">'Beer|Whiskey'</span></span><span class="text-white">,</span>
+<span class="text-purple-600">}</span><span class="text-white">;</span>`;
 ---
 
 <Layout title="Informational : Fun and silly information about myself.">
@@ -59,7 +59,7 @@ const code = `const bio = {
         >.
       </p>
       <p class="mt-5">
-        <pre class="text-sky-400"><code>{code}</code></pre>
+        <pre><code set:html={code} /></pre>
       </p>
     </div>
   </div>

@@ -1,6 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+const spotifyPlaylistLinks: string[] = [
+  "https://open.spotify.com/embed/playlist/4h078qobIT4ILD58Fyxp1r?utm_source=generator",
+  "https://open.spotify.com/embed/playlist/7mGo9yLU8e9xcQitEFbY6q?utm_source=generator",
+  "https://open.spotify.com/embed/playlist/70Au8Vd5c5uVOix1WCtZ7Y?utm_source=generator",
+  "https://open.spotify.com/embed/playlist/3bOTFGA88sLQQheHHvVrSw?utm_source=generator",
+];
+
 const youtubeLinks: string[] = [
   "https://www.youtube.com/embed/D1NdGBldg3w?si=O0kCLLoxAu2PnIIW",
   "https://www.youtube.com/embed/75Mw8r5gW8E?si=VtcAe1nUx4YGD5R2",
@@ -25,10 +32,27 @@ const youtubeLinks: string[] = [
       </div>
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {
+          spotifyPlaylistLinks.map((link: string) => {
+            return (
+              <div>
+                <iframe
+                  width="100%"
+                  src={link}
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                />
+              </div>
+            );
+          })
+        }
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {
           youtubeLinks.map((link: string) => {
             return (
-              <div class="p-0 mr-10">
+              <div>
                 <iframe
+                  width="100%"
                   src={link}
                   title="YouTube video player"
                   referrerpolicy="strict-origin-when-cross-origin"

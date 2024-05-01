@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 import * as emoji from 'node-emoji';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Commands {
+  key: string;
   command: string;
   output: string | null;
 }
@@ -25,6 +27,7 @@ export default function Terminal() {
         await setlastCommandRefLength((lastCommandRefLength) => 0);
       } else {
         await setCommand((command) => [...command, {
+          key: uuidv4(),
           // @ts-ignore
           command: commandRef.current.value,
           // @ts-ignore
@@ -44,8 +47,8 @@ export default function Terminal() {
   return (
     <div>
       <div className="max-h-screen overflow-y-scroll p-2 text-sm">
-        {commands.map((item, key) => {
-          return <div className="mb-1 text-white" key={key}>
+        {commands.map((item) => {
+          return <div className="mb-1 text-white" key={item.key}>
             <div>{item.command}</div>
             <div className="text-blue-400 text-8xl">{item.output}</div>
           </div>;

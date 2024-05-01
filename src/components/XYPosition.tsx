@@ -3,8 +3,6 @@ import { GoTriangleRight, GoTriangleUp } from 'react-icons/go';
 import Size from '../utilities/Size.ts';
 
 export default function XYPosition() {
-  const isRoot = window.location.pathname === '/';
-
   const [yPosition, setYPosition] = useState<number>(0);
 
   const [xPosition, setXPosition] = useState<number>(0);
@@ -35,16 +33,18 @@ export default function XYPosition() {
     }
   };
 
-  return (<div className={`${!isRoot ? 'hidden' : 'display'} z-10 invisible lg:visible`}>
+  return (<div className="display invisible lg:visible">
     <div id="yPosition" className="fixed left-0 text-1xl">
-      {/* <span className="text-xs text-gray-400">{yPosition}</span> */}
       <GoTriangleRight className="relative -top-3 -ml-1 text-gray-400" />
       <div className="w-screen -mt-5 ml-2 border-t border-dashed border-gray-700" />
     </div>
     <div id="xPosition" className="fixed bottom-0 text-1xl">
       <div className="h-screen -mb-2 border-l border-dashed border-gray-700" />
-      {/* <span className="text-xs text-gray-400">{xPosition}</span> */}
       <GoTriangleUp className="relative -bottom-1 -left-2 text-gray-400" />
+    </div>
+    <div className="fixed bottom-0 right-0 pt-0 pr-2 pb-1 pl-2 w-28 bg-slate-800 text-center bg-opacity-75">
+      <span className="mr-2 text-xs text-gray-400">x: {xPosition}</span>
+      <span className="text-xs text-gray-400">y: {yPosition}</span>
     </div>
   </div>);
 };

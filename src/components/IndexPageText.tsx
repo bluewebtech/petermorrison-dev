@@ -16,7 +16,7 @@ export default function Terminal() {
   doFadeIn();
 
   return (
-    <div className="font-poppins">
+    <div className="font-poppins w-fit">
       <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl">
           <span className={`mr-2 text-blue-500 ${
             firstFade

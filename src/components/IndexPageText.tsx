@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaEtsy, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
+
 
 export default function Terminal() {
   const [firstFade, setFirstFade] = useState<boolean>(false);
@@ -53,6 +54,9 @@ export default function Terminal() {
           </a>
           <a href="https://leetcode.com/bluewebtech/" target="_blank" rel="noreferrer">
             <SiLeetcode className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-orange-500" />
+          </a>
+          <a href="https://www.etsy.com/shop/GnarlyCatDesigns" target="_blank" rel="noreferrer">
+            <FaEtsy className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-orange-600" />
           </a>
         </p>
     </div>

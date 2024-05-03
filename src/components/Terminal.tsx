@@ -24,12 +24,16 @@ export default function Terminal() {
         await setCommand([]);
         await setlastCommandRefLength((lastCommandRefLength) => 0);
       } else {
-        await setCommand((command) => [...command, {
+
+        if (emoji.has(commandRef.current.value)) {
           // @ts-ignore
-          command: commandRef.current.value,
-          // @ts-ignore
-          output: emoji.emojify(`:${commandRef.current.value}:`),
-        }]);
+          await setCommand((command) => [...command, {
+            // @ts-ignore
+            command: commandRef.current.value,
+            // @ts-ignore
+            output: emoji.get(commandRef.current.value),
+          }]);
+        }
 
         await setlastCommandRefLength((lastCommandRefLength) => lastCommandRefLength + 1);
       }

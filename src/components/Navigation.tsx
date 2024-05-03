@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   MdOutlineHome,
   MdOutlinePerson,
@@ -12,7 +12,7 @@ export default function Navigation() {
 
   const doFadeIn = () => setTimeout(() => setFirstFade(true), 1);
 
-  doFadeIn();
+  useEffect(() => { doFadeIn() }, []);
 
   return (
     <nav className={`font-poppins  ${ firstFade ? "transition-all duration-500 opacity-100" : "opacity-0"}`}>

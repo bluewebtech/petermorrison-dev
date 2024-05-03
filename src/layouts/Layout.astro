@@ -30,7 +30,7 @@ const { title } = Astro.props;
         class="sticky top-0 z-50 bg-slate-900 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-sky-950 flex items-center justify-between px-3 py-3"
       >
         <div class="flex items-center h-8">
-          <Navigation client:only />
+          <Navigation client:only="react" />
         </div>
       </header>
       <slot />

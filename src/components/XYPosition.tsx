@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { GoTriangleRight, GoTriangleUp } from 'react-icons/go';
-import Size from '../utilities/Size.ts';
+import WindowSize from '../utilities/WindowSize.ts';
 
 export default function XYPosition() {
   const [yPosition, setYPosition] = useState<number>(0);
@@ -15,7 +15,7 @@ export default function XYPosition() {
   const onMouseMove = (event: any): void => {
     const yPosition = document.getElementById('yPosition');
     const xPosition = document.getElementById('xPosition');
-    const size = Size.get();
+    const size = WindowSize.get();
 
     if (yPosition && xPosition) {
       const maxHeight = size.height;

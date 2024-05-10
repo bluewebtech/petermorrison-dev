@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import Color from '../utilities/Color.js';
 import LocalStorage from '../utilities/LocalStorage.ts';
 import DisneyMovies from '../data/disney-movies.json';
 
@@ -7,30 +8,10 @@ interface FancyBackgroundItem {
   text: string;
 }
 
-interface CurrentHoveredItem {
-  color: string | null;
-  id: string | null;
-}
-
 export default function FancyBackground() {
   const fancyBackground = useRef<HTMLInputElement>(null);
 
   const [fancyBackgroundItems, setFancyBackgroundItems] = useState<FancyBackgroundItem[]>([]);
-
-  let currentHoveredItem = useRef<CurrentHoveredItem>({
-    color: null,
-    id: null,
-  });
-
-  // I stole this code from the stackoverflow.
-  // Thanks Internet developer person!
-  const randomColor = (opacity = 0.3) => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-
-    return `rgb(${r}, ${g}, ${b}, ${opacity})`;
-  };
 
   useEffect(() => {
     if (LocalStorage.has('fancy-background')) {
@@ -44,8 +25,7 @@ export default function FancyBackground() {
       if (fancyBackgroundBase64) {
         for (let i = 0; i < fancyBackgroundBase64.length; i++) {
           fancyBackgroundCollection.push({
-            // key: uuidv4(),
-            color: randomColor(),
+            color: Color.random(),
             text: fancyBackgroundBase64[i],
           });
         }
@@ -65,23 +45,25 @@ export default function FancyBackground() {
     }
   }, []);
 
+  const onMouseMove = (event: any): void => {
+    const element = document.getElementById(event.target.id);
+
+    if (element) {
+      element.style.color = Color.random(1);
+
+      setTimeout(() => element.style.color = Color.random(), 5000);
+    }
+  };
+
   const backgroundChars = fancyBackgroundItems.map((item, key) => {
     return (<span
       className="mr-1 inline-flex inline-block"
       id={`fancy-background-${String(key)}`}
       style={{color: item.color}}
-      key={key}>{item.text}</span>)
+      key={key}>{item.text}</span>);
   });
 
-  const onMouseMove = (event: any): void => {
-    const element = document.getElementById(event.target.id);
-
-    if (element) {
-      element.style.color = randomColor(1);
-
-      setTimeout(() => element.style.color = randomColor(), 5000);
-    }
-  };
-
-  return (<div className="fixed m-0 p-0 select-none" ref={fancyBackground}>{backgroundChars}</div>);
+  return (<div
+    className="fixed m-0 p-0 select-none"
+    ref={fancyBackground}>{backgroundChars}</div>);
 };

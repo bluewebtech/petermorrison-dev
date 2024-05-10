@@ -1,17 +1,10 @@
-export default class Size {
-  /**
-   * Get both the height and width of the window.
-   */
+export default class WindowSize {
   static get(): { height: number, width: number } {
     return {
       height: this.height(),
       width: this.width(),
     };
   }
-
-  /**
-   * Get current window height.
-   */
   static height(): number {
     return (
       window.innerHeight ||
@@ -20,9 +13,6 @@ export default class Size {
     );
   }
 
-  /**
-   * Get current window width.
-   */
   static width(): number {
     return (
       window.innerWidth ||

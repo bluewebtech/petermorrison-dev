@@ -5,6 +5,7 @@ export default class WindowSize {
       width: this.width(),
     };
   }
+
   static height(): number {
     return (
       window.innerHeight ||

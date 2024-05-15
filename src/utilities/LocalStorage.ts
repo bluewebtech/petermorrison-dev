@@ -12,6 +12,7 @@ export default class LocalStorage {
 
     return JSON.parse(atob(storage));
   }
+
   static has(name: string): boolean {
     return (localStorage.getItem(name) !== null);
   }

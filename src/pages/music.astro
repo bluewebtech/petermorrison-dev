@@ -1,27 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const spotifyPlaylistLinks: string[] = [
-  "https://open.spotify.com/embed/playlist/4h078qobIT4ILD58Fyxp1r?utm_source=generator",
-  "https://open.spotify.com/embed/playlist/7mGo9yLU8e9xcQitEFbY6q?utm_source=generator",
-  "https://open.spotify.com/embed/playlist/70Au8Vd5c5uVOix1WCtZ7Y?utm_source=generator",
-  "https://open.spotify.com/embed/playlist/3bOTFGA88sLQQheHHvVrSw?utm_source=generator",
-];
-
-const youtubeLinks: string[] = [
-  "https://www.youtube.com/embed/D1NdGBldg3w?si=O0kCLLoxAu2PnIIW",
-  "https://www.youtube.com/embed/75Mw8r5gW8E?si=VtcAe1nUx4YGD5R2",
-  "https://www.youtube.com/embed/CFlhlZbeKgE?si=l_H8qO8PDKisfvuC",
-  "https://www.youtube.com/embed/7_TqLc-vETs?si=3z4DZatuEC-tVDbJ",
-  "https://www.youtube.com/embed/3zAJ3LxMvqs?si=LtMKB4uttP82OepW",
-  "https://www.youtube.com/embed/kdkMXbcC97I?si=HVLU5SxPxFStaXS-",
-  "https://www.youtube.com/embed/iyVn13AXqXk?si=Sl4R6TkXZUlA3xHS",
-  "https://www.youtube.com/embed/xzjXcRFHjLA?si=b9ND3QuQqlAZpGgm",
-  "https://www.youtube.com/embed/OEt9Jx8pN1M?si=19Q06S_jM2hN_3xS",
-  "https://www.youtube.com/embed/cWE0sSZ9yLc?si=Hfg0nsC7TWhNpc0b",
-  "https://www.youtube.com/embed/aS0HXet-AUg?si=W01cBJhAjyWBTidD",
-  "https://www.youtube.com/embed/PsBezIRZECw?si=WFQMJvto4g2sEWWT",
-];
+import SpotifyPlaylists from "../components/SpotifyPlaylists.tsx";
+import YoutubeVideos from "../components/YoutubeVideos.tsx";
 ---
 
 <Layout title="Music : It's the world.">
@@ -30,38 +10,17 @@ const youtubeLinks: string[] = [
       <div class="text-left">
         <h1 class="text-4xl text-pink-500 font-bold sm:text-6xl">Music</h1>
       </div>
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {
-          spotifyPlaylistLinks.map((link: string) => {
-            return (
-              <div>
-                <iframe
-                  width="100%"
-                  src={link}
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                />
-              </div>
-            );
-          })
-        }
+      <div class="mt-6 text-left">
+        <h2 class="text-xl text-green-500">Spotify Playlists</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {
-          youtubeLinks.map((link: string) => {
-            return (
-              <div>
-                <iframe
-                  width="100%"
-                  src={link}
-                  title="YouTube video player"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-            );
-          })
-        }
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <SpotifyPlaylists />
+      </div>
+      <div class="text-left">
+        <h2 class="text-xl text-red-500">Youtube</h2>
+      </div>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <YoutubeVideos />
       </div>
     </div>
   </div>

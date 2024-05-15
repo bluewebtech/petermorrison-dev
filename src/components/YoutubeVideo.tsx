@@ -12,6 +12,9 @@ export default function YoutubeVideo(props: YouTubeVideos) {
         title={props.title}
         loading="lazy"
       />
+      <div className="p-2 lg:w-72 sm:w-full md:w-full text-white text-xs text-wrap">
+        {props.title}
+      </div>
     </a>
   </div>);
 };

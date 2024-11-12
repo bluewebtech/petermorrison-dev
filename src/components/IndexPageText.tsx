@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaEtsy, FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaBluesky } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 
 export default function Terminal() {
@@ -43,13 +43,13 @@ export default function Terminal() {
         </p>
         <p className="mt-4 text-3xl leading-8 text-3xl text-white">
           <a href="https://github.com/bluewebtech" target="_blank" rel="noreferrer">
-            <FaGithub className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-gray-500" />
+            <FaGithub className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-gray-400" />
           </a>
           <a href="https://www.linkedin.com/in/peter-morrison-info/" target="_blank" rel="noreferrer">
-            <FaLinkedin className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-blue-500" />
+            <FaLinkedin className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-blue-400" />
           </a>
-          <a href="https://twitter.com/bluewebtech" target="_blank" rel="noreferrer">
-            <FaXTwitter className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-gray-600" />
+          <a href="https://bsky.app/profile/petermorrison.dev" target="_blank" rel="noreferrer">
+            <FaBluesky className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-blue-600" />
           </a>
           <a href="https://leetcode.com/bluewebtech/" target="_blank" rel="noreferrer">
             <SiLeetcode className="inline mr-5 transition duration-200 ease-in-out text-white hover:text-orange-500" />
